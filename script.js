@@ -94,7 +94,7 @@ var upperCasedCharacters = [
 // var upperCasedCharacters
 
 console.log("This is the console begin : ");
-var length = 12; // Need to change this to range of length
+var length = 8; // Need to change this to range of length
 
 var allCharacters =
   upperCasedCharacters +
@@ -102,27 +102,9 @@ var allCharacters =
   numericCharacters +
   specialCharacters;
 
-function createPassword() {
-  let password = "";
-  password +=
-    upperCasedCharacters[
-      Math.floor(Math.random() * upperCasedCharacters.length)
-    ];
+console.log("All characters are:  " + allCharacters);
 
-  password +=
-    lowerCasedCharacters[
-      Math.floor(Math.random() * lowerCasedCharacters.length)
-    ];
-  password +=
-    numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-  password +=
-    specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-
-  while (length > password.length) {
-    password += allCharacters[Math.floor(Math.random() * allCharacters.length)];
-  }
-  console.log("The new password is:  " + password);
-}
+console.log(" length of pw is: " + length);
 
 // Function to prompt user for password options
 function getPasswordOptions() {}
@@ -131,17 +113,49 @@ function getPasswordOptions() {}
 function getRandom(arr) {}
 
 // Function to generate password with user input
-function generatePassword() {}
+
+//var passwordBox = document.getElementById("#password");
+var passwordText = document.querySelector("#password");
+
+function generatePassword() {
+  var pwd = "";
+  console.log("The new password is initial value:   " + pwd);
+
+  pwd +=
+    upperCasedCharacters[
+      Math.floor(Math.random() * upperCasedCharacters.length)
+    ];
+
+  pwd +=
+    lowerCasedCharacters[
+      Math.floor(Math.random() * lowerCasedCharacters.length)
+    ];
+  pwd +=
+    numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+  pwd +=
+    specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+
+  while (length > pwd.length) {
+    pwd += allCharacters[Math.floor(Math.random() * allCharacters.length)];
+  }
+  //passwordBox.value = pwd;
+  passwordText.value = pwd;
+
+  console.log("The new password is:  " + pwd);
+}
+generatePassword();
+console.log("The password been generated:  ");
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+
 function writePassword() {
-  var password = generatePassword();
+  var newPassword = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = newPassword;
 }
 
 // Add event listener to generate button
