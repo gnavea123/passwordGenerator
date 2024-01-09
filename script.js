@@ -93,7 +93,7 @@ var upperCasedCharacters = [
 // var lowerCasedCharacters
 // var upperCasedCharacters
 
-console.log("This is the console begin : ");
+console.log("This is where the code begins : ");
 var length = 8; // Need to change this to range of length
 
 var allCharacters =
@@ -102,7 +102,7 @@ var allCharacters =
   numericCharacters +
   specialCharacters;
 
-console.log("All characters are:  " + allCharacters);
+//console.log("All characters are:  " + allCharacters);
 
 console.log(" length of pw is: " + length);
 
@@ -119,7 +119,7 @@ var passwordText = document.querySelector("#password");
 
 function generatePassword() {
   var pwd = "";
-  console.log("The new password is initial value:   " + pwd);
+  console.log("The new password  initial value:   " + pwd);
 
   pwd +=
     upperCasedCharacters[
@@ -138,13 +138,15 @@ function generatePassword() {
   while (length > pwd.length) {
     pwd += allCharacters[Math.floor(Math.random() * allCharacters.length)];
   }
+
   //passwordBox.value = pwd;
   passwordText.value = pwd;
 
   console.log("The new password is:  " + pwd);
+  return;
 }
-generatePassword();
-console.log("The password been generated:  ");
+//generatePassword();
+console.log("The password has been generated:  ");
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -153,9 +155,14 @@ var generateBtn = document.querySelector("#generate");
 
 function writePassword() {
   var newPassword = generatePassword();
-  var passwordText = document.querySelector("#password");
+  //var newPassword = generatePassword.pwd;
+  //var passwordText = document.querySelector("#password");
+  //var newPassword = (passwordText.value = newPassword);
 
-  passwordText.value = newPassword;
+  var newPassword = passwordText.value;
+
+  console.log("Value of newPassword variable is: ");
+  console.log(newPassword);
 }
 
 // Add event listener to generate button
