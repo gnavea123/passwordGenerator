@@ -109,7 +109,7 @@ function getPasswordOptions() {
   console.log(" length of pw Options function is: " + pwdLength);
 }
 //getPasswordOptions();
-var pwdLength = 8;
+//var pwdLength = 8;
 console.log(pwdLength);
 
 // Function for getting a random element from an array
@@ -163,27 +163,48 @@ function generatePassword() {
   console.log(" pwLength is: " + getPwdLength);
 
   if (charType === "U") {
-  } else {
+    pwd +=
+      upperCasedCharacters[
+        Math.floor(Math.random() * upperCasedCharacters.length)
+      ];
+    while (pLen > pwd.length) {
+      pwd +=
+        upperCasedCharacters[
+          Math.floor(Math.random() * upperCasedCharacters.length)
+        ];
+    }
+  } else if (charType === "L") {
+    pwd +=
+      lowerCasedCharacters[
+        Math.floor(Math.random() * lowerCasedCharacters.length)
+      ];
+
+    while (pLen > pwd.length) {
+      pwd +=
+        lowerCasedCharacters[
+          Math.floor(Math.random() * lowerCasedCharacters.length)
+        ];
+    }
+  } else if (charType === "N") {
+    pwd +=
+      numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+    while (pLen > pwd.length) {
+      pwd +=
+        numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+    }
+  } else if (charType === "S") {
+    pwd +=
+      specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+
+    while (pLen > pwd.length) {
+      pwd +=
+        specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+    }
   }
 
-  pwd +=
-    upperCasedCharacters[
-      Math.floor(Math.random() * upperCasedCharacters.length)
-    ];
-
-  pwd +=
-    lowerCasedCharacters[
-      Math.floor(Math.random() * lowerCasedCharacters.length)
-    ];
-  pwd +=
-    numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-  pwd +=
-    specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-
-  //while (getPwdLength > pwd.length) {
-  while (pLen > pwd.length) {
-    pwd += allCharacters[Math.floor(Math.random() * allCharacters.length)];
-  }
+  // while (pLen > pwd.length) {
+  //   pwd += allCharacters[Math.floor(Math.random() * allCharacters.length)];
+  // }
 
   //passwordBox.value = pwd;
   passwordText.value = pwd;
