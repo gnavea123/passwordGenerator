@@ -94,7 +94,6 @@ var upperCasedCharacters = [
 // var upperCasedCharacters
 
 console.log("This is where the code begins : ");
-var length = 8; // Need to change this to range of length
 
 var allCharacters =
   upperCasedCharacters +
@@ -104,22 +103,68 @@ var allCharacters =
 
 //console.log("All characters are:  " + allCharacters);
 
-console.log(" length of pw is: " + length);
-
 // Function to prompt user for password options
-function getPasswordOptions() {}
+function getPasswordOptions() {
+  var pwdLength = 8; // Need to change this to range of length
+  console.log(" length of pw Options function is: " + pwdLength);
+}
+//getPasswordOptions();
+var pwdLength = 8;
+console.log(pwdLength);
 
 // Function for getting a random element from an array
 function getRandom(arr) {}
 
 // Function to generate password with user input
 
+let pLen = prompt("Please enter lnegth of PWD", "min 8 max 128");
+if (pLen >= 4 && pLen <= 10) {
+  //document.getElementById("demo").innerHTML = console.log(
+  "Hello " + pLen + "is valid";
+  console.log(pLen);
+} else console.log("length is invalid try again");
+
+var pwdLength = pLen;
+console.log("Value of pLen is: ");
+console.log(pLen);
+
+let charType = prompt(
+  "Please enter Character Type: LowerCase (L) or UpperCase (U) or Numeric (N) or Special (S)"
+);
+
+if (
+  charType !== "L" &&
+  charType !== "U" &&
+  charType !== "N" &&
+  charType != "S"
+) {
+  charType = prompt("Select again.");
+} else {
+  console.log("selected correctly: ") + charType;
+}
+
+var typeChar = charType;
+console.log("Value of charType is: ");
+console.log(charType);
+
 //var passwordBox = document.getElementById("#password");
 var passwordText = document.querySelector("#password");
 
 function generatePassword() {
+  //var pwdLength = 8;
+  var getPwdLength = getPasswordOptions();
+  //console.log("Value of pwdLength is: ");
+  //console.log(getPasswordOptions);
+
+  var getPwdLength = pwdLength;
   var pwd = "";
   console.log("The new password  initial value:   " + pwd);
+  // console.log(" length of pw is: " + getPwdLength);
+  console.log(" pwLength is: " + getPwdLength);
+
+  if (charType === "U") {
+  } else {
+  }
 
   pwd +=
     upperCasedCharacters[
@@ -135,7 +180,8 @@ function generatePassword() {
   pwd +=
     specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
 
-  while (length > pwd.length) {
+  //while (getPwdLength > pwd.length) {
+  while (pLen > pwd.length) {
     pwd += allCharacters[Math.floor(Math.random() * allCharacters.length)];
   }
 
@@ -155,11 +201,13 @@ var generateBtn = document.querySelector("#generate");
 
 function writePassword() {
   var newPassword = generatePassword();
+  // console.log(newPassword);
   //var newPassword = generatePassword.pwd;
   //var passwordText = document.querySelector("#password");
   //var newPassword = (passwordText.value = newPassword);
 
   var newPassword = passwordText.value;
+  //var getPasswordOptions = getPasswordOptions.pwdLength;
 
   console.log("Value of newPassword variable is: ");
   console.log(newPassword);
