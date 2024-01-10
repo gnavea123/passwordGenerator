@@ -113,14 +113,13 @@ function getPasswordOptions() {
 console.log(pwdLength);
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+//function getRandom(arr) {}
 
 // Function to generate password with user input
 
 let pLen = prompt("Please enter lnegth of PWD", "min 8 max 128");
-if (pLen >= 4 && pLen <= 10) {
-  //document.getElementById("demo").innerHTML = console.log(
-  "Hello " + pLen + "is valid";
+if (pLen >= 8 && pLen <= 128) {
+  //"Hello " + pLen + "is valid";
   console.log(pLen);
 } else console.log("length is invalid try again");
 
